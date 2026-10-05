@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -13,8 +13,12 @@ return {
     end,
   },
 
+  {
+    'ThePrimeagen/vim-be-good',
+  },
+
   -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
+  { import = "nvchad.blink.lazyspec" },
 
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
@@ -25,4 +29,12 @@ return {
   -- 		},
   -- 	},
   -- },
+
+  {
+    "saghen/blink.cmp",
+    opts = function(_, opts)
+      opts.keymap["<CR>"] = { "fallback" }
+      opts.keymap["<Tab>"] = { "accept", "snippet_forward", "fallback" }
+    end,
+  },
 }
